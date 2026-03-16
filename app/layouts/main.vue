@@ -23,7 +23,7 @@
     <footer class="border-t border-gray-200 mt-24">
       <div class="max-w-4xl mx-auto px-6 py-8">
         <div class="flex justify-between items-center text-sm text-gray-500">
-          <p>© 2026 Alex Developer. All rights reserved.</p>
+          <p>© 2026 Nguyen Tien Son.</p>
           <div class="flex gap-6">
             <NuxtLink
               href="https://github.com"

@@ -1,24 +1,23 @@
 <script setup lang="ts">
-defineProps<{ path: string }>();
+const { path } = defineProps<{ path: string }>();
 
 const route = useRoute();
 
-function isActive(path: string) {
+const isActive = computed(() => {
   if (path === '/' && route.path === '/') return true;
-  if (path !== '/' && route.path.startsWith(path)) return true;
-  return false;
-}
+  return path !== '/' && route.path.startsWith(path);
+});
 
-function navActiveClass(path: string) {
-  return isActive(path) ? 'text-black' : 'text-gray-500 hover:text-black';
-}
+const navActiveClasses = computed(() => {
+  return isActive.value ? 'text-black' : 'text-gray-500 hover:text-black';
+});
 </script>
 
 <template>
   <NuxtLink
     :to="path"
     class="transition-colors"
-    :class="navActiveClass(path)"
+    :class="navActiveClasses"
     v-bind="$attrs"
   >
     <slot></slot>
